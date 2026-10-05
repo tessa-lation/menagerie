@@ -50,6 +50,7 @@ export default function Hero({ hasStartedScrolling }) {
         <div className="container hero-inner">
           <div className="hero-brand landing-logo-stage">
             <img
+              id="main-hero-logo"
               className="hero-logo"
               src="/menagerie_gallery/new_logo.png"
               alt="The Menagerie of Lovely Things"

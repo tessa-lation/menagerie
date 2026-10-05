@@ -19,7 +19,7 @@ const upcomingSalon = {
 const archivedSalon = {
   title: 'Inaugural Salon',
   date: 'March 2026',
-  location: 'Oakland, CA',
+  location: 'San José, CA',
   images: [
     '/salon_gallery/salon_one/poster.PNG',
     '/salon_gallery/salon_one/salon_1.jpg',

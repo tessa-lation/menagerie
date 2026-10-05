@@ -5,6 +5,10 @@
 
 @import './styles/global.css';
 
+#main-hero-logo {
+  opacity: 90%;
+}
+
 .app-shell {
   position: relative;
   min-height: 100vh;
