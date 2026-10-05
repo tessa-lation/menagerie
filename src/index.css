@@ -1,0 +1,35 @@
+/**
+ * Root CSS
+ * Imports global styles from the styles directory
+ */
+
+@import './styles/global.css';
+
+@font-face {
+  font-family: "Dream Orphans";
+  src: url("./assets/fonts/dream_orphans/Dream Orphans.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Creato Display";
+  src: url("./assets/fonts/creato_display/CreatoDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Creato Display";
+  src: url("./assets/fonts/creato_display/CreatoDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("./assets/comfortaa/Comfortaa-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

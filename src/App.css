@@ -1,0 +1,38 @@
+/**
+ * App Styles
+ * Global styles are imported from styles/global.css
+ */
+
+@import './styles/global.css';
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-foreground {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  margin-left: 270px;
+  width: calc(100% - 270px);
+}
+
+/* Keep main layout content above the collage while preserving pointer interactions */
+.app-foreground > * {
+  position: relative;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .app-foreground {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+

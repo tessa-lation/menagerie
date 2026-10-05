@@ -1,0 +1,86 @@
+/* Color Palette - The Menagerie of Lovely Things */
+:root {
+  /* Primary Colors */
+  --site-black: #09090b;
+  --site-white: #f3f0ed;
+  --accent-pink: #efb2c3;
+  --accent-green: #add8b5;
+  --muted-text: #aaa4a2;
+
+  --bone-white: var(--site-white);
+  --warm-black: var(--site-black);
+  --oxblood: var(--accent-pink);
+  --dark-teal: var(--accent-green);
+  --tarnished-gold: var(--accent-pink);
+  --soft-gray: var(--muted-text);
+
+  /* Semantic Colors */
+  --bg-primary: var(--site-black);
+  --bg-secondary: rgba(243, 240, 237, 0.08);
+  --text-primary: var(--site-white);
+  --text-secondary: var(--muted-text);
+  --accent-primary: var(--accent-pink);
+  --accent-secondary: var(--accent-green);
+  --accent-tertiary: var(--accent-pink);
+  --border-color: rgba(243, 240, 237, 0.16);
+  --overlay-light: rgba(243, 240, 237, 0.12);
+  --overlay-dark: rgba(9, 9, 11, 0.8);
+
+  /* Typography */
+  --font-display: 'Dream Orphans', serif;
+  --font-body: 'Creato Display', sans-serif;
+  --font-mono: 'Monaco', monospace;
+
+  /* Spacing - Generous for gallery aesthetic */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+  --spacing-3xl: 8rem;
+
+  /* Font Sizes - Editorial scale */
+  --text-xs: 0.7rem;
+  --text-sm: 0.85rem;
+  --text-base: 1rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --text-2xl: 2.8rem;
+  --text-3xl: 3.5rem;
+  --text-4xl: 4.5rem;
+  --text-5xl: 5.5rem;
+
+  /* Line Heights */
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.05em;
+  --ls-wider: 0.1em;
+
+  /* Transitions */
+  --transition-fast: 200ms ease-out;
+  --transition-base: 300ms ease-out;
+  --transition-slow: 500ms ease-out;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(42, 38, 34, 0.08);
+  --shadow-md: 0 8px 16px rgba(42, 38, 34, 0.12);
+  --shadow-lg: 0 16px 32px rgba(42, 38, 34, 0.16);
+  --shadow-xl: 0 24px 48px rgba(42, 38, 34, 0.2);
+}
+
+/* Dark mode considerations (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: var(--warm-black);
+    --bg-secondary: #3a3531;
+    --text-primary: var(--bone-white);
+    --text-secondary: var(--soft-gray);
+    --border-color: #4a4540;
+  }
+}

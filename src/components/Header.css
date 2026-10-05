@@ -1,0 +1,354 @@
+.floating-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 100vh;
+  z-index: 1000;
+  padding: 28px 24px 24px;
+  border-right: 1px solid rgba(243, 240, 237, 0.16);
+  background: rgba(9, 9, 11, 0.96);
+  overflow-y: auto;
+  pointer-events: auto;
+  margin: 0;
+  transform: translateX(0) !important;
+  inset: 0 auto 0 0;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 1600ms ease,
+    transform 1600ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 1600ms;
+}
+
+.floating-header--landing-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-8px) !important;
+}
+
+.floating-header--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0) !important;
+}
+
+.floating-header--visible.floating-header--resting {
+  opacity: 0.5;
+  transition:
+    opacity 1100ms ease,
+    transform 1600ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 1600ms;
+}
+
+.floating-header--visible.floating-header--resting:hover,
+.floating-header--visible.floating-header--resting:focus-within {
+  opacity: 1;
+  transition-duration: 350ms;
+}
+
+.floating-nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100%;
+  gap: 20px;
+}
+
+.nav-brand {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.brand-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease-out;
+}
+
+.brand-link:hover {
+  opacity: 0.9;
+}
+
+.brand-mark {
+  width: 92px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 2px;
+}
+
+.brand-name,
+.brand-subtitle {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--site-white);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
+.nav-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(243, 240, 237, 0.16);
+  margin: 6px 0 12px;
+}
+
+.floating-nav {
+  width: 100%;
+  margin-top: 8px;
+  flex-grow: 1;
+}
+
+.floating-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.floating-nav-list li {
+  position: relative;
+}
+
+.floating-nav-list a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--site-white);
+  opacity: 0.7;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  padding: 0;
+}
+
+.floating-nav-list a:hover {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.nav-roman {
+  width: 1.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  opacity: 0.8;
+}
+
+.nav-label {
+  display: inline-block;
+}
+
+.floating-nav-list a.active {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.floating-nav-list a.active .nav-roman {
+  opacity: 1;
+}
+
+.floating-nav-list a.active::before {
+  content: '✦';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--accent-pink);
+  line-height: 1;
+}
+
+.floating-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px 0 0;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.floating-menu-toggle span {
+  width: 20px;
+  height: 1px;
+  background: var(--text-primary);
+  opacity: 0.85;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.footer-location,
+.current-room-label,
+.current-room-value {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--site-white);
+  opacity: 0.8;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-icons a {
+  color: var(--site-white);
+  opacity: 0.8;
+  transition: opacity 0.2s ease-out;
+}
+
+.footer-icons a:hover {
+  opacity: 1;
+}
+
+.footer-icons svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sidebar-footer {
+  border-top: 1px solid rgba(243, 240, 237, 0.16);
+  padding-top: 18px;
+}
+
+@media (max-width: 768px) {
+  .floating-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    padding: 16px 20px;
+    border-right: none;
+    border-bottom: 1px solid rgba(243, 240, 237, 0.16);
+    background: rgba(9, 9, 11, 0.95);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0) !important;
+  }
+
+  .floating-header--visible.floating-header--resting,
+  .floating-header--visible.floating-header--resting:hover,
+  .floating-header--visible.floating-header--resting:focus-within {
+    opacity: 1;
+    transition-duration: 150ms;
+  }
+
+  .floating-nav-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav-brand {
+    margin-bottom: 0;
+  }
+
+  .brand-mark {
+    width: 56px;
+  }
+
+  .brand-name {
+    font-size: 0.78rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .nav-divider,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .floating-menu-toggle {
+    display: flex;
+  }
+
+  .floating-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(9, 9, 11, 0.98);
+    padding: 32px 20px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  .floating-nav.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .floating-nav-list {
+    gap: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-header,
+  .floating-header--visible.floating-header--resting {
+    transition-duration: 150ms;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-header {
+    padding: 12px 16px;
+  }
+
+  .brand-name {
+    font-size: 0.7rem;
+  }
+
+  .brand-mark {
+    width: 48px;
+  }
+}

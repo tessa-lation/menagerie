@@ -1,0 +1,105 @@
+.falling-image-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.falling-piece {
+  position: absolute;
+  will-change: transform; /* Optimizes performance for cursor repulsion animation */
+}
+
+.tabletop-piece {
+  will-change: transform;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+/* Diorama-specific styles */
+.diorama {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.diorama-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+
+.diorama-piece {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, left, top, opacity;
+}
+
+.diorama-piece img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Render PNGs as isolated subjects with no visible box or shadow */
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+  border: none;
+  outline: none;
+  mix-blend-mode: unset;
+  backdrop-filter: none;
+  border-radius: 0;
+}
+
+.falling-piece img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Remove visible box/shadow for isolated PNGs */
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+  border: none;
+  outline: none;
+  mix-blend-mode: unset;
+  backdrop-filter: none;
+  border-radius: 0;
+}
+
+.tabletop-piece img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+  border: none;
+  outline: none;
+  mix-blend-mode: unset;
+  backdrop-filter: none;
+  border-radius: 0;
+}
+
+/* Ensure wrappers don't introduce visible backgrounds or borders */
+.diorama-piece,
+.diorama-layer,
+.falling-piece,
+.tabletop-piece {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* Ensure reduced motion preference is respected */
+@media (prefers-reduced-motion: reduce) {
+  .falling-piece {
+    will-change: auto;
+  }
+
+  .falling-piece img {
+    animation: none;
+  }
+}

@@ -1,0 +1,62 @@
+.background-scroll-collage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.background-piece {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  background: rgba(249, 247, 242, 0.78);
+  border: 1px solid rgba(249, 247, 242, 0.9);
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.14);
+  will-change: transform;
+}
+
+.background-piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9) contrast(1.03) sepia(0.1);
+}
+
+.background-portrait {
+  aspect-ratio: 3 / 4;
+  padding: 0.45rem 0.45rem 1.1rem;
+}
+
+.background-landscape {
+  aspect-ratio: 5 / 3;
+  padding: 0.4rem;
+}
+
+.background-circle {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 0.38rem;
+}
+
+.background-circle img {
+  border-radius: 50%;
+}
+
+.background-ticket {
+  aspect-ratio: 2 / 3;
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+  padding: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .background-scroll-collage {
+    opacity: 0.85;
+  }
+
+  .background-piece:nth-child(3n) {
+    display: none;
+  }
+}
