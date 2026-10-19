@@ -32,14 +32,14 @@ export const products = [
   {
     id: 'product-1',
     slug: 'product-1',
-    title: 'Product 1',
+    title: 'Only Fans Allowed',
     status: 'Unavailable',
     // No colors array = direct images in folder
   },
   {
     id: 'product-2',
     slug: 'product-2',
-    title: 'Product 2',
+    title: 'God Never Died',
     status: 'Unavailable',
     colors: [
       { id: 'color-1', name: 'Color 1', slug: 'color-1' },

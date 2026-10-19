@@ -13,12 +13,6 @@ export default function About() {
   return (
     <section id="parlor" className="about parlor-page">
       <header className="parlor-hero">
-        <img
-          className="parlor-hero-mark"
-          src="/menagerie_gallery/new_logo_just.png"
-          alt=""
-          aria-hidden="true"
-        />
         <span className="parlor-rule parlor-rule--one" aria-hidden="true" />
         <span className="parlor-rule parlor-rule--two" aria-hidden="true" />
 

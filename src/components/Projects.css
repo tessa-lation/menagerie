@@ -1,8 +1,8 @@
 .salon-page {
   position: relative;
-  padding: clamp(6rem, 10vw, 10rem) 0;
+  padding: clamp(6rem, 10vw, 10rem) 0 3rem;
   background: transparent;
-  color: var(--site-white);
+  color: var(--site-black);
 }
 
 .salon-shell {
@@ -18,18 +18,18 @@
 .salon-eyebrow,
 .salon-section-label {
   margin: 0 0 1.25rem;
-  color: var(--accent-green);
-  background: rgba(9, 9, 11, 0.7);
+  color: var(--dark-teal);
+  background: var(--bg-secondary);
   font: 400 0.65rem/1.3 var(--font-mono);
   letter-spacing: 0.24em;
 }
 
 .salon-heading h2 {
   margin: 0;
-  color: var(--site-white);
-  font: 700 clamp(4rem, 9vw, 8.5rem)/0.85 var(--font-display);
+  color: var(--site-black);
+  font: 700 clamp(3rem, 6.5vw, 6rem)/0.9 var(--font-display);
   letter-spacing: -0.035em;
-  text-shadow: 0 2px 12px var(--site-black);
+  text-shadow: 0 2px 12px rgba(77, 48, 70, 0.12);
 }
 
 .salon-upcoming,
@@ -45,26 +45,24 @@
 }
 
 .salon-feature-card {
-  position: relative;
-  min-height: clamp(520px, 68vw, 820px);
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  padding: clamp(1.5rem, 4vw, 4rem);
   border: 1px solid var(--border-color);
+  background: rgba(245, 243, 239, 0.92);
 }
 
 .salon-feature-card > img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: min(68vh, 640px);
+  object-fit: contain;
   transition: transform 700ms ease;
 }
 
 .salon-card-shade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(9, 9, 11, 0.12) 20%, rgba(9, 9, 11, 0.92) 100%);
+  display: none;
 }
 
 .salon-feature-card:hover > img,
@@ -73,9 +71,7 @@
 }
 
 .salon-feature-copy {
-  position: absolute;
-  z-index: 1;
-  inset: auto clamp(1.5rem, 4vw, 4rem) clamp(1.75rem, 5vw, 4.5rem);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -85,15 +81,15 @@
   display: inline-block;
   margin-bottom: 1.25rem;
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--accent-pink);
-  color: var(--accent-pink);
+  border: 1px solid var(--accent-jade);
+  color: var(--accent-jade);
   font: 400 0.65rem/1 var(--font-mono);
   letter-spacing: 0.18em;
 }
 
 .salon-card-title {
   display: block;
-  color: var(--site-white);
+  color: var(--site-black);
   font: 700 clamp(2.8rem, 6vw, 6rem)/0.95 var(--font-display);
   letter-spacing: -0.025em;
 }
@@ -116,8 +112,8 @@
 }
 
 .salon-archive {
-  margin-top: clamp(7rem, 13vw, 12rem);
-  padding-top: clamp(4rem, 7vw, 6rem);
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
   border-top: 1px solid var(--border-color);
 }
 
@@ -131,13 +127,13 @@
 
 .salon-archive-heading h3 {
   margin: 0;
-  color: var(--accent-pink);
+  color: var(--accent-jade);
   font: italic 700 clamp(2.5rem, 4vw, 4rem)/1 var(--font-display);
 }
 
 .salon-archive-card {
   display: grid;
-  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr);
   align-items: end;
   gap: clamp(2rem, 6vw, 6rem);
   padding-bottom: 2.5rem;
@@ -147,14 +143,16 @@
 .salon-archive-image {
   position: relative;
   display: block;
-  aspect-ratio: 4 / 3;
+  width: min(100%, 320px);
+  aspect-ratio: 3 / 4;
   overflow: hidden;
+  background: #B8C5EF;
 }
 
 .salon-archive-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 500ms ease;
 }
 
@@ -162,16 +160,14 @@
   position: absolute;
   inset: auto 0 0;
   padding: 1.25rem;
-  background: rgba(9, 9, 11, 0.82);
-  color: var(--accent-green);
+  background: rgba(77, 48, 70, 0.92);
+  color: var(--bone-white);
   font: 400 0.65rem/1 var(--font-mono);
   letter-spacing: 0.18em;
   transform: translateY(100%);
   transition: transform 300ms ease;
 }
 
-.salon-archive-card:hover img,
-.salon-archive-card:focus-visible img { transform: scale(1.03); }
 .salon-archive-card:hover .salon-archive-hover,
 .salon-archive-card:focus-visible .salon-archive-hover { transform: translateY(0); }
 
@@ -182,7 +178,7 @@
   display: grid;
   place-items: center;
   padding: clamp(1rem, 3vw, 3rem);
-  background: rgba(3, 3, 5, 0.9);
+  background: rgba(41, 37, 43, 0.48);
   backdrop-filter: blur(10px);
   animation: salonFadeIn 220ms ease-out;
 }
@@ -193,8 +189,15 @@
   max-height: calc(100vh - 2rem);
   overflow: auto;
   border: 1px solid var(--border-color);
-  background: #0d0d0f;
+  background: var(--site-white);
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+}
+
+.salon-gallery-modal {
+  display: flex;
+  width: min(100%, 1100px);
+  height: min(900px, calc(100svh - 2rem));
+  overflow: hidden;
 }
 
 .salon-modal-close {
@@ -204,16 +207,16 @@
   right: 1rem;
   width: 2.75rem;
   height: 2.75rem;
-  border: 1px solid rgba(243, 240, 237, 0.3);
-  background: rgba(9, 9, 11, 0.82);
-  color: var(--site-white);
+  border: 1px solid rgba(245, 243, 239, 0.3);
+  background: var(--oxblood);
+  color: var(--bone-white);
   font: 300 2rem/1 var(--font-body);
 }
 
 .salon-modal-close:hover,
 .salon-modal-close:focus-visible,
 .salon-gallery-arrow:hover,
-.salon-gallery-arrow:focus-visible { border-color: var(--accent-pink); color: var(--accent-pink); }
+.salon-gallery-arrow:focus-visible { border-color: var(--accent-jade); color: var(--accent-jade); }
 
 .salon-info-layout {
   display: grid;
@@ -226,7 +229,7 @@
   height: 100%;
   max-height: 85vh;
   object-fit: contain;
-  background: #08080a;
+  background: #B8C5EF;
 }
 
 .salon-info-copy {
@@ -239,7 +242,7 @@
 .salon-info-copy h3,
 .salon-gallery-heading h3 {
   margin: 0;
-  color: var(--site-white);
+  color: var(--site-black);
   font: 700 clamp(3rem, 5vw, 5.5rem)/0.95 var(--font-display);
 }
 
@@ -259,7 +262,14 @@
   line-height: 1.8;
 }
 
-.salon-gallery-layout { padding: clamp(1.25rem, 3vw, 3rem); }
+.salon-gallery-layout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(1rem, 2vw, 2rem);
+}
 
 .salon-gallery-heading {
   display: flex;
@@ -267,7 +277,7 @@
   justify-content: space-between;
   gap: 2rem;
   padding-right: 4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .salon-gallery-heading .salon-section-label { margin-bottom: 0.75rem; }
@@ -283,15 +293,23 @@
 .salon-gallery-stage {
   position: relative;
   display: grid;
+  flex: 1 1 0;
   place-items: center;
-  height: min(62vh, 720px);
-  background: #08080a;
+  min-height: 0;
+  overflow: hidden;
+  background: #B8C5EF;
 }
 
 .salon-gallery-stage > img {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  max-width: calc(100% - 6rem);
+  max-height: 100%;
   object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
 .salon-gallery-arrow {
@@ -301,9 +319,9 @@
   transform: translateY(-50%);
   width: 3rem;
   height: 3rem;
-  border: 1px solid rgba(243, 240, 237, 0.3);
-  background: rgba(9, 9, 11, 0.8);
-  color: var(--site-white);
+  border: 1px solid rgba(245, 243, 239, 0.3);
+  background: var(--oxblood);
+  color: var(--bone-white);
   font-size: 1.25rem;
 }
 
@@ -325,15 +343,15 @@
   border: 1px solid transparent;
 }
 
-.salon-thumbnails button.active { opacity: 1; border-color: var(--accent-pink); }
+.salon-thumbnails button.active { opacity: 1; border-color: var(--accent-jade); }
 .salon-thumbnails img { width: 100%; height: 100%; object-fit: cover; }
 
 @keyframes salonFadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 768px) {
   .salon-shell { padding-inline: 1.25rem; }
-  .salon-feature-card { min-height: 580px; }
-  .salon-feature-card > img { object-fit: contain; background: rgba(9, 9, 11, 0.45); }
+  .salon-feature-card { grid-template-columns: 1fr; gap: 2rem; }
+  .salon-feature-card > img { height: min(58vh, 520px); }
   .salon-archive-heading { display: block; }
   .salon-archive-card { grid-template-columns: 1fr; align-items: start; gap: 1.75rem; }
   .salon-info-layout { grid-template-columns: 1fr; }
@@ -341,7 +359,6 @@
   .salon-info-copy { padding: 2rem 1.5rem 3rem; }
   .salon-gallery-heading { display: block; padding-right: 3rem; }
   .salon-counter { margin-top: 1rem; }
-  .salon-gallery-stage { height: 52vh; }
   .salon-gallery-arrow { width: 2.6rem; height: 2.6rem; }
   .salon-gallery-arrow--previous { left: 0.5rem; }
   .salon-gallery-arrow--next { right: 0.5rem; }

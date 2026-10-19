@@ -1,6 +1,6 @@
 .parlor-page {
-  --parlor-cream: var(--site-white);
-  --parlor-blush: var(--accent-pink);
+  --parlor-cream: var(--site-black);
+  --parlor-blush: var(--accent-jade);
   --parlor-mint: var(--accent-green);
   --parlor-dim: var(--muted-text);
   background: transparent;
@@ -41,9 +41,11 @@
 }
 
 .parlor-stamp--mint { color: var(--parlor-mint); }
-.parlor-stamp--mauve { color: #c79aad; }
+.parlor-stamp--mauve { color: var(--accent-jade); }
 
 .parlor-title {
+  position: relative;
+  isolation: isolate;
   width: min(100%, 1200px);
   margin: 0;
   font-family: var(--font-display);
@@ -53,6 +55,17 @@
   letter-spacing: -0.045em;
   color: var(--parlor-cream);
   animation: parlorReveal 850ms 120ms ease-out both;
+}
+
+.parlor-title::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -0.25em -0.35em;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(77, 48, 70, 0.12) 0%, rgba(77, 48, 70, 0.06) 52%, transparent 78%);
+  filter: blur(18px);
+  pointer-events: none;
 }
 
 .parlor-title span,
@@ -70,20 +83,6 @@
   white-space: nowrap;
 }
 
-.parlor-hero-mark {
-  position: absolute;
-  z-index: 0;
-  width: clamp(500px, 48vw, 700px);
-  height: auto;
-  right: -4%;
-  top: 50%;
-  transform: translateY(-50%);
-  object-fit: contain;
-  opacity: 0.05;
-  pointer-events: none;
-  user-select: none;
-}
-
 .parlor-rule {
   position: absolute;
   z-index: 1;
@@ -95,14 +94,14 @@
   width: 46%;
   top: 42%;
   right: 5%;
-  background: rgba(239, 178, 195, 0.2);
+  background: rgba(63, 137, 123, 0.4);
 }
 
 .parlor-rule--two {
   width: 34%;
   bottom: 25%;
   left: 8%;
-  background: rgba(243, 240, 237, 0.13);
+  background: rgba(77, 48, 70, 0.2);
 }
 
 .parlor-kicker,
@@ -137,9 +136,12 @@
 }
 
 .parlor-story-copy h2 {
+  width: fit-content;
   max-width: 900px;
   margin: 0 0 clamp(3rem, 6vw, 5rem);
+  padding: 0.08em 0.16em;
   color: var(--parlor-blush);
+  background: rgba(184, 197, 239, 0.92);
   font-family: var(--font-display);
   font-size: clamp(3rem, 5.2vw, 4.6rem);
   font-weight: 700;
@@ -150,17 +152,12 @@
 .parlor-story-copy p {
   max-width: 760px;
   margin: 0 0 1.5rem;
+  padding: 0.6rem 0.8rem;
   color: var(--parlor-dim);
+  background: rgba(184, 197, 239, 0.92);
   font-family: var(--font-body);
   font-size: clamp(1.05rem, 1.25vw, 1.2rem);
   line-height: 1.85;
-}
-
-.parlor-story-copy p span {
-  padding: 0.12em 0.22em;
-  background: rgba(9, 9, 11, 0.58);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .parlor-story-image {
@@ -220,7 +217,6 @@
   .parlor-title { font-size: clamp(3.7rem, 17vw, 6rem); line-height: 0.84; }
   .parlor-title em { padding-left: 0.35em; }
   .parlor-title span:last-child { white-space: normal; }
-  .parlor-hero-mark { width: min(520px, 120vw); right: -45%; opacity: 0.035; }
   .parlor-story-grid { display: flex; flex-direction: column; gap: 4rem; }
   .parlor-story-image { position: static; width: 100%; order: 2; }
   .parlor-story-image img { max-height: 34rem; }

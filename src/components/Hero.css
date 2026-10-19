@@ -8,7 +8,7 @@
   overflow: hidden;
   padding: clamp(5rem, 8vw, 8rem) 0 clamp(130px, 18vh, 190px);
   box-sizing: border-box;
-  background: transparent;
+  background: rgba(77, 48, 70, 0.9);
 }
 
 .hero-background {
@@ -32,7 +32,7 @@
   z-index: 5;
   width: 100%;
   text-align: center;
-  color: var(--site-white);
+  color: var(--bone-white);
   animation: slideInUp 1s ease-out;
 }
 
@@ -50,7 +50,7 @@
   left: 50%;
   top: 46%;
   transform: translate(-50%, -50%);
-  width: min(44rem, 72vw);
+  width: min(42rem, 68vw);
   z-index: 3;
 }
 
@@ -76,7 +76,7 @@
   font-size: 0.74rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--accent-pink);
+  color: var(--bone-white);
   margin-bottom: 0.9rem;
 }
 
@@ -86,7 +86,7 @@
   font-weight: 400;
   line-height: 1.04;
   margin-bottom: 1rem;
-  color: var(--site-white);
+  color: var(--bone-white);
   letter-spacing: 0.02em;
   animation: slideInUp 1s ease-out;
 }
@@ -94,7 +94,7 @@
 .hero-tagline {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--muted-text);
+  color: rgba(245, 243, 239, 0.82);
   line-height: 1.7;
   max-width: 620px;
   margin: 0 auto;
@@ -105,7 +105,7 @@
 .hero-title span,
 .hero-tagline span {
   padding: 0.12em 0.24em;
-  background: rgba(9, 9, 11, 0.58);
+  background: rgba(245, 243, 239, 0.12);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -122,7 +122,7 @@
   gap: clamp(5px, 0.7vw, 11px);
   width: max-content;
   height: min(54vh, 520px);
-  color: var(--accent-green);
+  color: var(--bone-white);
   opacity: 1;
   visibility: visible;
   pointer-events: none;
@@ -247,7 +247,7 @@
 
 @media (max-width: 1250px) {
   .landing-logo-stage {
-    width: min(39rem, 65vw);
+    width: min(37rem, 62vw);
   }
 
   .landing-scroll-cue {
@@ -257,7 +257,7 @@
 
 @media (max-width: 900px) {
   .landing-logo-stage {
-    width: min(42rem, 86vw);
+    width: min(40rem, 82vw);
   }
 
   .landing-scroll-cue {

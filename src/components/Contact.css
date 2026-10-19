@@ -1,5 +1,6 @@
 .contact {
   background: transparent;
+  padding-top: clamp(2rem, 4vw, 4rem);
 }
 
 .contact h2 {

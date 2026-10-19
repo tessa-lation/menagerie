@@ -46,7 +46,7 @@
   /* Render PNGs as isolated subjects with no visible box or shadow */
   background: transparent;
   box-shadow: none;
-  filter: none;
+  filter: grayscale(35%) saturate(0.8) brightness(0.9);
   border: none;
   outline: none;
   mix-blend-mode: unset;

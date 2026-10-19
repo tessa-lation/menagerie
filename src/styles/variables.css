@@ -1,30 +1,30 @@
 /* Color Palette - The Menagerie of Lovely Things */
 :root {
   /* Primary Colors */
-  --site-black: #09090b;
-  --site-white: #f3f0ed;
-  --accent-pink: #efb2c3;
-  --accent-green: #add8b5;
-  --muted-text: #aaa4a2;
+  --site-black: #29252B;
+  --site-white: #F5F3EF;
+  --accent-jade: #2F755C;
+  --accent-green: #326F64;
+  --muted-text: #625D62;
 
-  --bone-white: var(--site-white);
-  --warm-black: var(--site-black);
-  --oxblood: var(--accent-pink);
-  --dark-teal: var(--accent-green);
-  --tarnished-gold: var(--accent-pink);
+  --bone-white: #F5F3EF;
+  --warm-black: #29252B;
+  --oxblood: #4D3046;
+  --dark-teal: #3F897B;
+  --tarnished-gold: #B8C5EF;
   --soft-gray: var(--muted-text);
 
   /* Semantic Colors */
-  --bg-primary: var(--site-black);
-  --bg-secondary: rgba(243, 240, 237, 0.08);
-  --text-primary: var(--site-white);
+  --bg-primary: var(--site-white);
+  --bg-secondary: rgba(77, 48, 70, 0.07);
+  --text-primary: var(--site-black);
   --text-secondary: var(--muted-text);
-  --accent-primary: var(--accent-pink);
-  --accent-secondary: var(--accent-green);
-  --accent-tertiary: var(--accent-pink);
-  --border-color: rgba(243, 240, 237, 0.16);
-  --overlay-light: rgba(243, 240, 237, 0.12);
-  --overlay-dark: rgba(9, 9, 11, 0.8);
+  --accent-primary: var(--accent-jade);
+  --accent-secondary: var(--dark-teal);
+  --accent-tertiary: var(--tarnished-gold);
+  --border-color: rgba(41, 37, 43, 0.16);
+  --overlay-light: rgba(255, 255, 255, 0.5);
+  --overlay-dark: rgba(77, 48, 70, 0.78);
 
   /* Typography */
   --font-display: 'Dream Orphans', serif;
@@ -77,10 +77,10 @@
 /* Dark mode considerations (optional) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-primary: var(--warm-black);
-    --bg-secondary: #3a3531;
-    --text-primary: var(--bone-white);
-    --text-secondary: var(--soft-gray);
-    --border-color: #4a4540;
+    --bg-primary: var(--site-white);
+    --bg-secondary: rgba(77, 48, 70, 0.07);
+    --text-primary: var(--site-black);
+    --text-secondary: var(--muted-text);
+    --border-color: rgba(41, 37, 43, 0.16);
   }
 }

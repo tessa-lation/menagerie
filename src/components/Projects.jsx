@@ -8,11 +8,11 @@ import { createPortal } from 'react-dom';
 import './Projects.css';
 
 const upcomingSalon = {
-  title: 'Halloween Salon',
-  date: 'October 2026',
-  status: 'COMING SOON',
+  title: 'Salon 2 Electric Boo-galoo',
+  date: 'October 24th 2026',
+  status: 'COMING SOON!',
   description:
-    'Details are still taking shape. Check back soon for announcements, performers, and RSVP information.',
+    'Join us for the second Salon!Musical Performances by Fragile D, bloominous, Mallace, and Dark Halo. Artist gallery showing.',
   poster: '/salon_gallery/salon_two/poster.png',
 };
 

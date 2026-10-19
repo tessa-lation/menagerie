@@ -1,5 +1,7 @@
 .shop {
   background: transparent;
+  padding-top: clamp(2rem, 4vw, 4rem);
+  padding-bottom: clamp(2rem, 4vw, 4rem);
 }
 
 .shop h2 {

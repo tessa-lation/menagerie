@@ -1,7 +1,7 @@
 .gallery-carousel {
   width: 100%;
-  max-width: 980px;
-  margin: 2rem auto;
+  max-width: 780px;
+  margin: 1.5rem auto;
 }
 
 .carousel-window {
@@ -46,8 +46,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  color: #111;
+  background: var(--oxblood);
+  color: var(--bone-white);
   border: none;
   display: flex;
   align-items: center;
@@ -73,16 +73,16 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.6);
+  background: rgba(77, 48, 70, 0.35);
   border: none;
   padding: 0;
   cursor: pointer;
   transition: transform 220ms ease, background 220ms ease;
 }
 
-.dot.active { background: rgba(255,255,255,0.95); transform: scale(1.15); }
+.dot.active { background: var(--accent-jade); transform: scale(1.15); }
 
 @media (max-width: 640px) {
   .carousel-control { width: 36px; height: 36px; font-size: 22px; }
-  .carousel-slide img { height: clamp(180px, 36vh, 320px); }
+  .carousel-slide img { height: 100%; }
 }
