@@ -248,6 +248,10 @@ export default function FallingImageBackground() {
   useEffect(() => {
     if (!ready) return;
 
+    // Parallax severity multiplier for mouse
+    const parallaxSeverity = 3;
+    // Parallax severity multiplier for scroll
+    const scrollSeverity = -3;
     let last = performance.now();
 
     function frame(now) {
@@ -269,14 +273,14 @@ export default function FallingImageBackground() {
         if (!layer) return;
 
         // Base movement for this layer (from config)
-        const baseMove = layerConfig.baseMove || 0;
+        const baseMove = (layerConfig.baseMove || 0) * parallaxSeverity;
 
         // Mouse-driven offset (center-relative)
         const mouseOffsetX = baseMove * rx * PARALLAX_CONFIG.mouseDepthMultiplier;
         const mouseOffsetY = baseMove * ry * PARALLAX_CONFIG.mouseDepthMultiplier * 0.6; // reduce vertical effect
 
         // Scroll-driven offset (page vertical parallax)
-        const scrollOffsetY = scrollNorm * baseMove * PARALLAX_CONFIG.scrollDepthMultiplier;
+        const scrollOffsetY = scrollNorm * baseMove * PARALLAX_CONFIG.scrollDepthMultiplier * scrollSeverity;
 
         // Combined target for this layer
         const targetX = mouseOffsetX;
