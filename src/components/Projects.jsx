@@ -8,45 +8,65 @@ import { createPortal } from 'react-dom';
 import './Projects.css';
 
 const upcomingSalon = {
-  title: 'Salon 2 Electric Boo-galoo',
-  date: 'October 24th 2026',
+  title: 'Garden Salon',
+  date: 'Date and time TBD',
   status: 'COMING SOON!',
   description:
-    'Join us for the second Salon!Musical Performances by Fragile D, bloominous, Mallace, and Dark Halo. Artist gallery showing.',
-  poster: '/salon_gallery/salon_two/poster.png',
+    'A public park gathering with music, art, and community. Further details to follow.',
+  poster: '/salon_gallery/garden_salon/garden_salon_poster.png',
 };
 
-const archivedSalon = {
-  title: 'Inaugural Salon',
-  date: 'March 2026',
-  location: 'San José, CA',
-  images: [
-    '/salon_gallery/salon_one/poster.PNG',
-    '/salon_gallery/salon_one/salon_1.jpg',
-    '/salon_gallery/salon_one/salon_2.jpg',
-    '/salon_gallery/salon_one/salon_3.jpg',
-    '/salon_gallery/salon_one/salon_4.jpg',
-    '/salon_gallery/salon_one/salon_5.jpg',
-  ],
-};
+const archivedSalons = [
+  {
+    title: 'Salon 2 Electric Boo-galoo',
+    date: 'October 24th, 2026',
+    location: 'San José, CA',
+    images: [
+      '/salon_gallery/salon_two/poster.png',
+      '/salon_gallery/salon_one/poster.PNG',
+      '/salon_gallery/salon_one/salon_1.jpg',
+      '/salon_gallery/salon_one/salon_2.jpg',
+      '/salon_gallery/salon_one/salon_3.jpg',
+      '/salon_gallery/salon_one/salon_4.jpg',
+      '/salon_gallery/salon_one/salon_5.jpg',
+    ],
+  },
+  {
+    title: 'Inaugural Salon',
+    date: 'June 14th, 2026',
+    location: 'San José, CA',
+    images: [
+      '/salon_gallery/salon_one/poster.PNG',
+      '/salon_gallery/salon_one/salon_1.jpg',
+      '/salon_gallery/salon_one/salon_2.jpg',
+      '/salon_gallery/salon_one/salon_3.jpg',
+      '/salon_gallery/salon_one/salon_4.jpg',
+      '/salon_gallery/salon_one/salon_5.jpg',
+    ],
+  },
+];
 
 export default function Projects() {
   const [modal, setModal] = useState(null);
   const [activeImage, setActiveImage] = useState(0);
+  const [selectedArchiveIndex, setSelectedArchiveIndex] = useState(0);
+
+  const selectedArchive = archivedSalons[selectedArchiveIndex] ?? archivedSalons[0];
 
   const closeModal = () => setModal(null);
 
   const showPrevious = () => {
     setActiveImage((current) =>
-      (current - 1 + archivedSalon.images.length) % archivedSalon.images.length
+      (current - 1 + selectedArchive.images.length) % selectedArchive.images.length
     );
   };
 
   const showNext = () => {
-    setActiveImage((current) => (current + 1) % archivedSalon.images.length);
+    setActiveImage((current) => (current + 1) % selectedArchive.images.length);
   };
 
-  const openArchive = () => {
+  const openArchive = (index = 0) => {
+    setSelectedArchiveIndex(index);
     setActiveImage(0);
     setModal('archive');
   };
@@ -78,45 +98,50 @@ export default function Projects() {
           <h2>THE SALON</h2>
         </header>
 
-        <section className="salon-upcoming" aria-labelledby="upcoming-salon-title">
-          <p className="salon-section-label">UPCOMING SALON</p>
-          <button
-            className="salon-feature-card"
-            type="button"
-            onClick={() => setModal('upcoming')}
-            aria-label="View details for Halloween Salon"
-          >
-            <img src={upcomingSalon.poster} alt="Halloween Salon poster" />
-            <span className="salon-card-shade" aria-hidden="true" />
-            <span className="salon-feature-copy">
-              <span className="salon-status">{upcomingSalon.status}</span>
-              <span className="salon-card-title" id="upcoming-salon-title">{upcomingSalon.title}</span>
-              <span className="salon-card-meta">{upcomingSalon.date}</span>
-              <span className="salon-card-action">VIEW DETAILS →</span>
-            </span>
-          </button>
-        </section>
+        {upcomingSalon && (
+          <section className="salon-upcoming" aria-labelledby="upcoming-salon-title">
+            <p className="salon-section-label">UPCOMING SALON</p>
+            <button
+              className="salon-feature-card"
+              type="button"
+              onClick={() => setModal('upcoming')}
+              aria-label={`View details for ${upcomingSalon.title}`}
+            >
+              <img src={upcomingSalon.poster} alt={`${upcomingSalon.title} poster`} />
+              <span className="salon-card-shade" aria-hidden="true" />
+              <span className="salon-feature-copy">
+                <span className="salon-status">{upcomingSalon.status}</span>
+                <span className="salon-card-title" id="upcoming-salon-title">{upcomingSalon.title}</span>
+                <span className="salon-card-meta">{upcomingSalon.date}</span>
+                <span className="salon-card-action">VIEW DETAILS →</span>
+              </span>
+            </button>
+          </section>
+        )}
 
         <section className="salon-archive" aria-labelledby="archive-heading">
           <div className="salon-archive-heading">
             <p className="salon-section-label">ARCHIVE</p>
             <h3 id="archive-heading">Past gatherings</h3>
           </div>
-          <button
-            className="salon-archive-card"
-            type="button"
-            onClick={openArchive}
-            aria-label="Open gallery for Inaugural Salon"
-          >
-            <span className="salon-archive-image">
-              <img src={archivedSalon.images[0]} alt="Inaugural Salon poster" />
-              <span className="salon-archive-hover">OPEN GALLERY →</span>
-            </span>
-            <span className="salon-archive-copy">
-              <span className="salon-card-title">{archivedSalon.title}</span>
-              <span className="salon-card-meta">{archivedSalon.date} · {archivedSalon.location}</span>
-            </span>
-          </button>
+          {archivedSalons.map((salon, index) => (
+            <button
+              key={salon.title}
+              className="salon-archive-card"
+              type="button"
+              onClick={() => openArchive(index)}
+              aria-label={`Open gallery for ${salon.title}`}
+            >
+              <span className="salon-archive-image">
+                <img src={salon.images[0]} alt={`${salon.title} poster`} />
+                <span className="salon-archive-hover">OPEN GALLERY →</span>
+              </span>
+              <span className="salon-archive-copy">
+                <span className="salon-card-title">{salon.title}</span>
+                <span className="salon-card-meta">{salon.date} · {salon.location}</span>
+              </span>
+            </button>
+          ))}
         </section>
       </div>
 
@@ -138,9 +163,9 @@ export default function Projects() {
               ×
             </button>
 
-            {modal === 'upcoming' ? (
+            {modal === 'upcoming' && upcomingSalon ? (
               <div className="salon-info-layout">
-                <img src={upcomingSalon.poster} alt="Halloween Salon poster" />
+                <img src={upcomingSalon.poster} alt={`${upcomingSalon.title} poster`} />
                 <div className="salon-info-copy">
                   <span className="salon-status">{upcomingSalon.status}</span>
                   <h3 id="salon-modal-title">{upcomingSalon.title}</h3>
@@ -153,32 +178,32 @@ export default function Projects() {
                 <div className="salon-gallery-heading">
                   <div>
                     <p className="salon-section-label">ARCHIVE GALLERY</p>
-                    <h3 id="salon-modal-title">{archivedSalon.title}</h3>
-                    <p>{archivedSalon.date} · {archivedSalon.location}</p>
+                    <h3 id="salon-modal-title">{selectedArchive.title}</h3>
+                    <p>{selectedArchive.date} · {selectedArchive.location}</p>
                   </div>
                   <p className="salon-counter" aria-live="polite">
-                    {activeImage + 1} / {archivedSalon.images.length}
+                    {activeImage + 1} / {selectedArchive.images.length}
                   </p>
                 </div>
 
                 <div className="salon-gallery-stage">
                   <button type="button" className="salon-gallery-arrow salon-gallery-arrow--previous" onClick={showPrevious} aria-label="Previous image">←</button>
                   <img
-                    src={archivedSalon.images[activeImage]}
-                    alt={`${archivedSalon.title} image ${activeImage + 1} of ${archivedSalon.images.length}`}
+                    src={selectedArchive.images[activeImage]}
+                    alt={`${selectedArchive.title} image ${activeImage + 1} of ${selectedArchive.images.length}`}
                   />
                   <button type="button" className="salon-gallery-arrow salon-gallery-arrow--next" onClick={showNext} aria-label="Next image">→</button>
                 </div>
 
                 <div className="salon-thumbnails" aria-label="Gallery thumbnails">
-                  {archivedSalon.images.map((image, index) => (
+                  {selectedArchive.images.map((image, index) => (
                     <button
                       type="button"
                       className={index === activeImage ? 'active' : ''}
                       onClick={() => setActiveImage(index)}
                       aria-label={`View image ${index + 1}`}
                       aria-current={index === activeImage ? 'true' : undefined}
-                      key={image}
+                      key={`${selectedArchive.title}-${image}`}
                     >
                       <img src={image} alt="" />
                     </button>
